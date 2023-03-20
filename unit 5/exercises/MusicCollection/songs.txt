@@ -1,0 +1,53 @@
+1,Radiohead,OK Computer,Airbag,4:44
+2,Radiohead,OK Computer,Paranoid Android,6:23
+3,Radiohead,OK Computer,Subterranean Homesick Alien,4:27
+4,Radiohead,OK Computer,Exit Music (For a Film),4:24
+5,Radiohead,OK Computer,Let Down,4:59
+6,Radiohead,OK Computer,Karma Police,4:21
+7,Radiohead,OK Computer,Fitter Happier,1:57
+8,Radiohead,OK Computer,Electioneering,3:50
+9,Radiohead,OK Computer,Climbing Up the Walls,4:45
+10,Radiohead,OK Computer,No Surprises,3:48
+11,Radiohead,OK Computer,Lucky,4:19
+12,Radiohead,OK Computer,The Tourist,5:24
+1,Radiohead,The Bends,Planet Telex,4:19
+2,Radiohead,The Bends,The Bends,4:06
+3,Radiohead,The Bends,High and Dry,4:17
+4,Radiohead,The Bends,Fake Plastic Trees,4:50
+5,Radiohead,The Bends,Bones,3:09
+6,Radiohead,The Bends,(Nice Dream),3:53
+7,Radiohead,The Bends,Just,3:54
+8,Radiohead,The Bends,My Iron Lung,4:36
+9,Radiohead,The Bends,Bullet Proof... I Wish I Was,3:28
+10,Radiohead,The Bends,Black Star,4:07
+11,Radiohead,The Bends,Sulk,3:42
+12,Radiohead,The Bends,Street Spirit (Fade Out),4:12
+1,The Beatles,Abbey Road,Come Together,4:19
+2,The Beatles,Abbey Road,Something,3:02
+3,The Beatles,Abbey Road,Maxwell's Silver Hammer,3:27
+4,The Beatles,Abbey Road,Oh! Darling,3:27
+5,The Beatles,Abbey Road,Octopus's Garden,2:51
+6,The Beatles,Abbey Road,I Want You (She's So Heavy),7:47
+7,The Beatles,Abbey Road,Here Comes the Sun,3:05
+8,The Beatles,Abbey Road,Because,2:45
+9,The Beatles,Abbey Road,You Never Give Me Your Money,4:03
+10,The Beatles,Abbey Road,Sun King,2:26
+11,The Beatles,Abbey Road,Mean Mr. Mustard,1:06
+12,The Beatles,Abbey Road,Polythene Pam,1:13
+13,The Beatles,Abbey Road,She Came In Through the Bathroom Window,1:58
+14,The Beatles,Abbey Road,Golden Slumbers,1:31
+15,The Beatles,Abbey Road,Carry That Weight,1:36
+16,The Beatles,Abbey Road,The End,2:05
+17,The Beatles,Abbey Road,Her Majesty,0:23
+1,Elvis Costello,My Aim Is True,Welcome to the Working Week,1:22
+2,Elvis Costello,My Aim Is True,Miracle Man,3:31
+3,Elvis Costello,My Aim Is True,No Dancing,2:39
+4,Elvis Costello,My Aim Is True,Blame It on Cain,2:49
+5,Elvis Costello,My Aim Is True,Alison,2:54
+6,Elvis Costello,My Aim Is True,Sneaky Feelings,2:09
+7,Elvis Costello,My Aim Is True,(The Angels Wanna Wear My) Red Shoes,2:47
+8,Elvis Costello,My Aim Is True,Less Than Zero,3:15
+9,Elvis Costello,My Aim Is True,Mystery Dance,1:38
+10,Elvis Costello,My Aim Is True,Pay It Back,2:33
+11,Elvis Costello,My Aim Is True,I'm Not Angry,2:57
+12,Elvis Costello,My Aim Is True,Waiting for the End of the World,3:22

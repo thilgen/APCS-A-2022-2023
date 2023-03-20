@@ -1,0 +1,26 @@
+table {
+  width: 80%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px;
+}
+
+.topSide {
+  color: white;
+  font-weight: bold; 
+  background-color: #d7bde2;
+}
+
+.leftSide {
+  color: white;
+  font-weight: bold; 
+  background-color: #d4efdf;
+}
+
+.cell {
+  color: white;
+  background-color: #aed6f1;
+}
+
+td {
+  text-align: center;
+}

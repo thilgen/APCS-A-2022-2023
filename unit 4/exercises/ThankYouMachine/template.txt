@@ -1,0 +1,18 @@
+$DATE
+
+$NAME
+$ADDRESS1
+$ADDRESS2
+
+Dear $NAME,
+
+I wanted to take the opportunity to write you to offer my most
+$ADJECTIVE1 and $ADJECTIVE2 thanks and gratitude for your
+recent gift to me of a $GIFT on the occasion of my birthday.
+
+Your boundless generosity never ceases to $VERB me.
+I do hope that we will have the pleasure of spending time
+together again soon.
+
+From the depths of my heart,
+$ME

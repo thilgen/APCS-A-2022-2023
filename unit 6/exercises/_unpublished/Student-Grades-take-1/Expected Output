@@ -1,0 +1,92 @@
+  ------------------
+  Susan Berry
+  ------------------
+  31.67 in Chemistry
+  77.50 in Economics
+  71.00 in History
+  ------------------
+  60.06 OVERALL
+  ------------------
+
+  ------------------
+  Carol Le
+  ------------------
+  50.00 in Chemistry
+  42.50 in Economics
+  50.00 in History
+  ------------------
+  47.50 OVERALL
+  ------------------
+
+  ------------------
+  Sharon Cardenas
+  ------------------
+  81.67 in Chemistry
+  21.25 in Economics
+  35.00 in History
+  ------------------
+  45.97 OVERALL
+  ------------------
+
+  ------------------
+  Linda Walton
+  ------------------
+  50.00 in Chemistry
+  40.00 in Economics
+  48.00 in History
+  ------------------
+  46.00 OVERALL
+  ------------------
+
+  ------------------
+  Sandra Andersen
+  ------------------
+  31.67 in Chemistry
+  66.25 in Economics
+  50.00 in History
+  ------------------
+  49.31 OVERALL
+  ------------------
+
+VERIFY: Student Lookup
+  Susan Berry : FOUND (name vales matches)
+  Carol Le : FOUND (name vales matches)
+  Sharon Cardenas : FOUND (name vales matches)
+  Linda Walton : FOUND (name vales matches)
+  Sandra Andersen : FOUND (name vales matches)
+
+VERIFY: Chemistry Test Lookup
+  Chemistry Test 1 : FOUND
+  Chemistry Test 2 : FOUND
+  Chemistry Test 3 : FOUND
+
+VERIFY: Economics Test Lookup
+  Economics Test 1 : FOUND
+  Economics Test 2 : FOUND
+  Economics Test 3 : FOUND
+  Economics Test 4 : FOUND
+
+VERIFY: History Test Lookup
+  History Test 1 : FOUND
+  History Test 2 : FOUND
+  History Test 3 : FOUND
+  History Test 4 : FOUND
+  History Test 5 : FOUND
+
+VERIFY: Student Averages
+  Susan Berry
+    EXPECTED -> Chemistry: 31.67 Economics: 77.50 History: 71.00 OVERALL: 60.06
+    GOT      -> Chemistry: 31.67 Economics: 77.50 History: 71.00 OVERALL: 60.06
+  Carol Le
+    EXPECTED -> Chemistry: 50.00 Economics: 42.50 History: 50.00 OVERALL: 47.50
+    GOT      -> Chemistry: 50.00 Economics: 42.50 History: 50.00 OVERALL: 47.50
+  Sharon Cardenas
+    EXPECTED -> Chemistry: 81.67 Economics: 21.25 History: 35.00 OVERALL: 45.97
+    GOT      -> Chemistry: 81.67 Economics: 21.25 History: 35.00 OVERALL: 45.97
+  Linda Walton
+    EXPECTED -> Chemistry: 50.00 Economics: 40.00 History: 48.00 OVERALL: 46.00
+    GOT      -> Chemistry: 50.00 Economics: 40.00 History: 48.00 OVERALL: 46.00
+  Sandra Andersen
+    EXPECTED -> Chemistry: 31.67 Economics: 66.25 History: 50.00 OVERALL: 49.31
+    GOT      -> Chemistry: 31.67 Economics: 66.25 History: 50.00 OVERALL: 49.31
+ 

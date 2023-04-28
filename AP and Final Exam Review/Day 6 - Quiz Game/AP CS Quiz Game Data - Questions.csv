@@ -1,0 +1,161 @@
+id,points,question,code sample,answer
+Q002,1,What types of variables are these?,"int, double, boolean",primitives
+Q003,4,If an initial value is not provided - To what values are these variables initialized?,"int i;
+double d;
+boolean b;
+String s;","0
+0.0
+false
+null"
+Q004,1,Methods and properties that you can access as members of a Class (rather than an instance) are called?,"Math.abs()
+String.valueOf()
+Integer.MAX_VALUE",statics
+Q005,1,What keyword is used to indicate that a variable is a constant value that cannot change?,,final
+Q006,4,What are the results of these operations?,"10 / 2
+15 / 2.0
+23 % 10
+(10 / 2) + (15 / 2.0) - (23 % 10)","5
+7.5
+3
+9.5"
+Q007,4,What are the results of these operations?,"""Hello"" + "" "" + ""Bob""
+""Test Score: "" + 93
+""Area Code: "" + ""415""
+""Voting Age: "" + 20 + 1","Hello Bob
+Test Score: 93
+Area Code: 415
+Voting Age: 201"
+Q008,2,What are two other ways to write this expression?,x++,"x = x + 1
+x += 1"
+Q009,1,What is the result of this operation?,(int) 2.125 + (double) 13,"""15.0"""
+Q010,1,"A ""blueprint"" from which you can create an instance is called?",,class
+Q011,1,The method in a class that determines how to initialize the class is called?,,constructor
+Q012,1,Having multiple methods in a class with the same name (but different arguments) is called?,"public int getTotal()
+public int getTotal(int num)
+public int getTotal(int[] scores)",overloading
+Q013,1,"Having a method in a child class with the same name, arguments, and return type as a method in a parent class is called?",,overriding
+Q014,1,True or False: A constructor requires arguments?,,FALSE
+Q015,1,True or False: A class can have multiple constructors?,,TRUE
+Q016,1,If a class does not define a constructor - What does Java create?,,defult constructor
+Q018,1,What exception is thrown if your code attempts to access an uninitialized Object-type variable,,NullPointerException
+Q019,1,Methods are required to have a return type - What type is used if a Method does not return anything?,,void
+Q020,1,"What keyword is used to indicate ""the current Object instance""",,this
+Q021,1,There are multiple ways to determine if a String has nothing in it - Name one of them.,,"s.length() == 0
+s.isEmpty()
+s.equals("""")
+s.compareTo("""") == 0"
+Q022,1,The contents of a String cannot change - This kind of Object is called?,,immutable
+Q023,4,What is the output of this block of code,"if (true) {
+  System.out.println(""A"");
+  System.out.println(""B"");
+  if (false)
+    System.out.println(""C"");
+  else
+    if (false)
+      System.out.println(""E"");
+      System.out.println(""F"");
+} else
+  System.out.println(""G"");
+  System.out.println(""H"");","A
+B
+F
+H"
+Q024,4,What is the two-variable boolean truth table for &&,"| p | q | p && q|
+|   |   |       |
+|   |   |       |
+|   |   |       |
+|   |   |       |","| p | q | p && q|
+|  true |  true|  true|
+|  true |  false | false |
+|  false | true  | false |
+|  false|  false |  false|"
+Q025,4,What is the two-variable boolean truth table for ||,"| p | q | p || q|
+|   |   |       |
+|   |   |       |
+|   |   |       |
+|   |   |       |","| p | q | p && q|
+|  true |  true|  true|
+|  true |  false | true |
+|  false | true  | true |
+|  false|  false |  false|"
+Q026,2,What is the one-variable boolean truth table for !,"| p | !p|
+|   |   | 
+|   |   |
+","| p | !p|
+|true  | false | 
+|  false | true |
+"
+Q027,1,In this compound boolean expressions - What value of b will cause Java to short-circuit and not evaluate c and d?,a && b && c && d,FALSE
+Q028,1,In this compound boolean expressions - What value of b will cause Java to short-circuit and not evaluate c and d?,a || b || c || d,TRUE
+Q029,1,DeMorgans Law: What expression is equivalent to,!(a && b),!a || !b
+Q030,1,DeMorgans Law: What expression is equivalent to,!(a || b),!a && !b
+Q031,1,What looping expression guarantees that an expression will be executed at least one time?,,do-while
+Q032,1,What keyword is used to exit a loop (but not the Method)?,,break
+Q033,1,What keyword is used to exit a loop and the Method?,,return
+Q034,1,What keyword is used to go to the next iteration of the loop?,,continue
+Q035,2,Given a String s1 - What is the smallest and highest index that can be passed to s1.charAt() without throwing an exception?,,"0
+s1.length-1"
+Q036,1,Methods and properties of a class - that are only accessed by that class - should be decorated with what keyword?,,private
+Q037,1,Methods and properties of a class - that can be accessed by any other code - should be decorated with what keyword?,,public
+Q038,1,Methods and properties of a class - that are only accessed by that class and its sub-classes - should be decorated with what keyword?,,protected
+Q039,1,Constructors are very much like Methods wIth one very big difference - Constructors unlike Methods do not...,,have return types
+Q040,1,What term describes the requirements needed for a method to work correctly?,,pre-condition
+Q041,1,What term describes the output (or results) of a method?,,post-condition
+Q042,1,A simple Method that retrieves the value of a property is called...,,getter
+Q043,1,A simple Method that assigns the value of a property is called...,,setter
+Q044,1,True or False: Statics in a class can directly access other Statics in that class?,,TRUE
+Q045,1,True or False: Statics in a class can directly access non-Statics in that class?,,FALSE
+Q046,1,True or False: Non-Statics in a class can directly access Statics in that class?,,TRUE
+Q047,1,True or False: An Array of primitive types can only contain a single type?,,TRUE
+Q048,1,True or False: An Array of Object types can only contain a single type?,,FALSE
+Q049,2,Given an non-empty Array a1 - What is the smallest and highest index that can be passed to a1[] without throwing an exception?,,"0
+a1.length-1"
+Q050,1,True or False: You can create an ArrayList of primitive types.,"ArrayList<boolean> answers;
+ArrayList<int> scores;",FALSE
+Q051,1,Given a non-empty ArrayList aList - What is the smallest and highest index that can be passed to aList.get() without throwing an exception?,,"0
+aList.size() - 1"
+Q052,1,2D arrays that do not have identically-sized inner arrays are called?,,"jagged arrays
+ragged arrays"
+Q053,1,Java allows inheritance through the use of what keyword?,,extends
+Q054,1,What does the acronym OOP mean?,,Object Oriented Programming
+Q055,1,Moving similar code from sub-classes to super-classes is called?,,generalization
+Q056,1,Isolating code in sub-classes that do not make sense in super-classes is called?,,specialization
+Q057,1,What is the parent class of every class in Java?,,Object
+Q058,1,What keyword is used by a subclass to call methods in its parent class?,,super
+Q059,1,"What keyword can be used to determine if an object ""is-a"" particular type?",,instanceof
+Q060,1,True or False: A sub-class can always be used where an instance of a super-class is expected?,,TRUE
+Q061,1,True or False: A super-class can always be used where an instance of a sub-class is expected?,,FALSE
+Q062,1,What is the OOP principle that allows Objects of different sub-types to be treated as the same parent-type,,polymorphism
+Q063,1,What keyword is used in super-classes to indicate that a Method must be implemented by sub-classes?,,abstract
+Q064,1,What keyword is used to indicate that a class can not be directly created; Only sub-classes can be created?,,abstract
+Q065,1,True or False: A class must be marked abstract if it contains methods that have been marked abstract/,,TRUE
+Q066,1,What is it called when a Method calls itself?,,recursion
+Q067,1,What is the condition called when a recursive Method will no longer call itself?,,base case
+Q068,1,True or False: Sub-classes can directly access the private methods and properties of its parent class.,"class Book {
+  private String name;
+}
+
+class TextBook extends Book {
+  public TextBook(String name) {
+    this.name = name;
+  }
+}",FALSE
+Q069,1,"What does the following method call return: ""foo"".compareTo(""bar"")",,an integer greater than zero
+Q070,1,True or False: The cast operator () must be used to convert from a subclass type to a superclass type.,"String str = ""Hello, world!"";
+Object obj = (Object) str;",FALSE
+Q071,1,True or False: Insertion Sort is always faster than Selection Sort.,,FALSE
+Q072,1,True or False: Merge Sort is always faster than Insertion Sort.,,FALSE
+Q073,1,"True or False: Binary Search is a superior algorithm to Linear Search for searching an unordered collection of data, because it runs in logarithmic instead of linear time.",,FALSE
+Q074,1,True or False: The @Override annotation is required when a subclass overrides a method in a superclass.,,FALSE
+Q075,1,"True or False: The condition in a for, while, or if statement must evaluate to type boolean.","while (1) {
+  System.out.println(""Infinite loop!"");
+}",TRUE
+Q076,1,"Given two Strings s1 and s2, these two expressions always evaluate to the same boolean result.","s1 == s2
+s1.equals(s2)",FALSE
+Q077,1,"If a superclass has 1 constructor which takes parameters, a subclass does not need to declare its own constructor.","class Person {
+  public Person(String name) {...}
+}
+
+class Teacher extends Person {
+
+}",FALSE

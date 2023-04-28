@@ -1,0 +1,145 @@
+-----------------------
+
+FILE: styles.html
+
+-----------------------
+
+<style>
+  body {
+    font-family: "Arial";
+  }
+  select {
+    width: 200px;
+  }
+  button {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  #teamsDiv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+  .teamListBoxDiv {
+    margin-right: 25px;
+  }
+</style>
+
+-----------------------
+
+FILE: server.gs
+
+-----------------------
+
+function doGet(e) { 
+  Logger.log(`doGet`)
+  var webTemplate = HtmlService.createTemplateFromFile('index')
+  var htmlOutput = webTemplate.evaluate()
+  htmlOutput.setTitle("Assign Teams")
+  return htmlOutput
+}
+
+function include(filename){
+  return HtmlService.createHtmlOutputFromFile(filename)
+    .getContent();
+};
+
+-----------------------
+
+FILE: index.html
+
+-----------------------
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('styles') ?>
+    <script>
+      const teams = [
+        'Team 1',
+        'Team 2',
+        'Team 3',
+        'Team 4',
+      ]
+      const students = [
+        'Student 1',
+        'Student 2',
+        'Student 3',
+        'Student 4',
+        'Student 5',
+        'Student 6',
+        'Student 7',
+        'Student 8',
+        'Student 9',
+        'Student 10',
+      ]
+      function addNameToListBox(listBoxName, name) {
+        var opt = document.createElement("option")
+        opt.text = name
+        opt.value = name
+        document.getElementById(listBoxName).add(opt)
+      }
+      function removeSelectedNameFromListBox(listBoxName) {
+        const listBox = document.getElementById(listBoxName)
+        listBox.remove(listBox.selectedIndex)
+      }
+      function onCreateTeams(teamsIdx) {
+        const studentsListBox = document.getElementById('Students')
+        teamsIdx = teamsIdx ? teamsIdx : 0
+        let studentIndex = Math.random() * studentsListBox.length
+        studentsListBox.selectedIndex = studentIndex
+        const name = studentsListBox.value
+        studentsListBox.remove(studentIndex)
+        addNameToListBox(teams[teamsIdx], name)
+        if (studentsListBox.length > 0) {
+          setTimeout(onCreateTeams, 1000, (teamsIdx + 1) % 4);
+        }
+      }
+      function createNameList(parentDivName, listBoxName) {
+        const div = document.createElement('div')
+        div.classList.add("teamListBoxDiv");
+        const heading = div.appendChild(document.createElement('h3'))
+        heading.innerHTML = listBoxName
+        const select = div.appendChild(document.createElement('select'))
+        select.id = listBoxName
+        select.size = 25
+        div.appendChild(document.createElement('br'))
+        const addNameButton = div.appendChild(document.createElement('button'))
+        addNameButton.innerHTML = 'Add Name'
+        addNameButton.onclick = function() {
+          const newName =  prompt('Name: ')
+          addNameToListBox(listBoxName, newName)
+        }
+        const removeNameButton = div.appendChild(document.createElement('button'))
+        removeNameButton.innerHTML = 'Remove Name'
+        removeNameButton.onclick = function() {
+          removeSelectedNameFromListBox(listBoxName)
+        }
+        document.getElementById(parentDivName).appendChild(div)
+      }
+      function onDocumentLoad() {
+        createNameList('studentsDiv', 'Students')
+        students.forEach( (studentName) => {
+          addNameToListBox('Students', studentName)
+        })
+        teams.forEach( (teamName) => {
+          createNameList('teamsDiv', teamName)
+        })
+      }
+    </script>
+  </head>
+  <body onload='onDocumentLoad()'>
+    <div>
+      <button onclick='onCreateTeams()'>Create Teams!</button>
+    </div>
+    <div id='studentsDiv'>
+      <!-- populated by code -->
+    </div>
+    <div id='teamsDiv'>
+      <!-- populated by code -->
+    </div>
+  </body>
+</html>
+
+

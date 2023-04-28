@@ -1,0 +1,141 @@
+var QUIZ_DECK_URI = 'https://docs.google.com/presentation/d/1PRAEVIkcY2XV9A_H0JceS8ltJsdPvdWnKvRBamPQkDk/edit#slide=id.p'
+
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('Quiz Generator')
+    .addItem('Populate Deck', 'onPopulateDeck')
+    .addItem('Shuffle Deck', 'onShuffleDeck')
+    .addItem('Create Grading Sheet', 'onCreateGradingSheet')
+    .addToUi();
+}
+
+function formatGradingSheet(gradingSheet) {
+  gradingSheet.getRange('A1').activate();
+  var currentCell = gradingSheet.getCurrentCell();
+  gradingSheet.getActiveRange().getDataRegion().activate();
+  currentCell.activateAsCurrentCell();
+  gradingSheet.getActiveRangeList().setBorder(true, true, true, true, true, true, '#000000', SpreadsheetApp.BorderStyle.SOLID)
+  gradingSheet.getActiveRangeList().setHorizontalAlignment('left');
+  gradingSheet.getRange('A1:D1').activate();
+  gradingSheet.getActiveRangeList().setFontWeight('bold');
+  gradingSheet.getRange('A:D').activate();
+  gradingSheet.setColumnWidth(1, 125);
+  gradingSheet.setColumnWidth(2, 125);
+  gradingSheet.setColumnWidth(3, 190);
+  gradingSheet.setColumnWidth(4, 70);
+}
+
+function onCreateGradingSheet() {
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+  var resultsSheet = spreadsheet.insertSheet()
+  resultsSheet.setName('Grading Sheet: ' + Utilities.formatDate(new Date(), "PST", "yyyy.MM.dd.HH:mm:ss"));
+  var resultsRange = resultsSheet.getRange("A1:D1");
+  resultsRange.setValues([
+    ['Question Number', 'Question ID', 'Answer', 'Points']
+  ]);
+  resultsRange = resultsRange.offset(1, 0);
+  var presentation = SlidesApp.openByUrl(QUIZ_DECK_URI)
+  var slides = presentation.getSlides()
+  for (var slidesIdx = 0 ; slidesIdx < slides.length ; slidesIdx++ ) {
+    var slide = slides[slidesIdx]
+    var tables = slide.getTables()
+    for (var tablesIdx = 0; tablesIdx < tables.length ; tablesIdx++) {
+      var table = tables[tablesIdx]
+      var upperLeftText = table.getCell(0,0).getText().asString().trim()
+      if ('Question: ' == upperLeftText.substring(0,10)) {
+        console.log(upperLeftText.substring(10))
+        resultsRange.setValues([[
+          slidesIdx+1,
+          upperLeftText.substring(10),
+          '=VLOOKUP(INDIRECT("B" & ROW()),Questions!A:E,5,false)',
+          '=VLOOKUP(INDIRECT("B" & ROW()),Questions!A:E,2,false)', 
+        ]]);
+        resultsRange = resultsRange.offset(1, 0);
+      } else {
+        break;
+      }
+    }
+  }
+  formatGradingSheet(resultsSheet)
+}
+
+function getTemplateVariables() {
+  var templateVariables = {}
+  var templateVariablesSheet = SpreadsheetApp.getActive().getSheetByName("Template Variables")
+  for (var rowIdx = 2 ; ; rowIdx++ ) {
+    var [dataColumnName, templateVariable] = templateVariablesSheet.getRange(rowIdx, 1, 1, 2).getValues()[0]
+    if (dataColumnName) {
+      if (templateVariable) {
+        templateVariables[dataColumnName] = templateVariable
+      }
+    } else {
+      break
+    }
+  }
+  return templateVariables
+}
+
+function getDataColumnNameColIndexes() {
+  var dataColumnNameColIndexes = {}
+  var dataSheet = SpreadsheetApp.getActive().getSheetByName("Questions")
+  for (var colIdx = 1 ; ; colIdx++ ) {
+    var dataColumnName = dataSheet.getRange(1, colIdx).getValue()
+    if (dataColumnName) {
+        dataColumnNameColIndexes[dataColumnName] = colIdx
+    } else {
+      break
+    }
+  }
+  return dataColumnNameColIndexes
+}
+
+function getDataColumnNameColIndexTemplateVariableMappings() {
+  var dataColumnNameColIndexTemplateVariableMappings = {}
+  var dataColumnNameColIndexes = getDataColumnNameColIndexes()
+  var templateVariables = getTemplateVariables()
+  for (var dataColumnName in dataColumnNameColIndexes) {
+    var templateVariable = templateVariables[dataColumnName]
+    if (templateVariable) {
+      dataColumnNameColIndexTemplateVariableMappings[dataColumnNameColIndexes[dataColumnName]] = templateVariable
+    }
+  }
+  return dataColumnNameColIndexTemplateVariableMappings
+}
+
+function onShuffleDeck() {
+  var presentation = SlidesApp.openByUrl(QUIZ_DECK_URI)
+  var slides = presentation.getSlides()
+  for (var slideIdx = 1 ; slideIdx < slides.length ; slideIdx++ ) {
+    var swapIdx = Math.floor(Math.random() * slides.length + 1)
+    var swapSlide = slides[swapIdx]
+    slides[slideIdx].move(swapIdx)
+    if (swapSlide) {
+      swapSlide.move(slideIdx)
+    }    
+  }
+}
+
+function onPopulateDeck() {
+  var dataSheet = SpreadsheetApp.getActive().getSheetByName("Questions")
+  var dataColumnNameColIndexTemplateVariableMappings = getDataColumnNameColIndexTemplateVariableMappings()
+  var presentation = SlidesApp.openByUrl(QUIZ_DECK_URI)
+  var templateSlide = presentation.getSlides()[0]
+  for (var rowIdx = 2 ; ; rowIdx++ ) {
+    var dataRowValues = ['zero-index-to-col-index-offset-dummy-value']
+    dataRowValues = dataRowValues.concat(dataSheet.getRange(`${rowIdx}:${rowIdx}`).getValues()[0])
+    if (dataRowValues[1]) {
+      var cellColor = dataSheet.getRange(`A${rowIdx}`).getBackgroundColor();
+      if (cellColor != '#ffffff') {
+        continue
+      }
+      var newSlide = presentation.appendSlide(templateSlide)
+      for (var dataColumnNameColIndex in dataColumnNameColIndexTemplateVariableMappings) {
+        var templateVariableName = dataColumnNameColIndexTemplateVariableMappings[dataColumnNameColIndex]
+        var templateVariableValue = dataRowValues[dataColumnNameColIndex]
+        newSlide.replaceAllText(`{{${templateVariableName}}}`, templateVariableValue, true)
+      }
+    } else {
+      break
+    }
+  }
+}

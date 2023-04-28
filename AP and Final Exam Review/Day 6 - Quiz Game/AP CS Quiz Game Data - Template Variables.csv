@@ -1,0 +1,6 @@
+Data Column,Template Variable
+id,question_id
+points,question_points
+question,question_text
+code sample,question_code
+answer,
